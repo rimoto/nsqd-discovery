@@ -3,11 +3,6 @@ build:
   steps:
     - setup-go-workspace
 
-    # Add ssh key in order to download private reps
-    - add-ssh-key:
-        keyname: github
-    - add-to-known_hosts:
-        hostname: github.com
     - glide-install
 
 
