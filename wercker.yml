@@ -46,7 +46,7 @@ deploy:
             server: $KUBERNETES_MASTER
             certificate-authority: ca.pem
             token: $WERCKER_SA_TOKEN
-            command: set image deployment/$WERCKER_GIT_REPOSITORY $WERCKER_GIT_REPOSITORY=gcr.io/$GCE_PROJECT_ID/$WERCKER_GIT_REPOSITORY:$WERCKER_GIT_COMMIT
+            command: set image daemonset/nsqd $WERCKER_GIT_REPOSITORY=gcr.io/$GCE_PROJECT_ID/$WERCKER_GIT_REPOSITORY:$WERCKER_GIT_COMMIT
 
     after-steps:
       - slack-notifier:
