@@ -3,13 +3,15 @@ build:
   steps:
     - setup-go-workspace
 
-    - glide-install
-
+    # Install deps
+    - almogbaku/dep-ensure
 
     # Tests
-    - almogbaku/glide-test
-    - golint:
-        exclude: "vendor"
+    - script:
+      name: go test
+      code: go test ./...
+    - almogbaku/golint:
+      exclude: "vendor"
     - almogbaku/gofmt-check
 
     # Build the project
@@ -36,17 +38,6 @@ deploy:
             entrypoint: ./nsqd-discovery
             tag: $WERCKER_GIT_COMMIT, latest
             user: "2016"
-
-        - create-file:
-            name: Create ca.pem
-            filename: ca.pem
-            content: $CA_PEM
-
-        - kubectl:
-            server: $KUBERNETES_MASTER
-            certificate-authority: ca.pem
-            token: $WERCKER_SA_TOKEN
-            command: set image daemonset/nsqd $WERCKER_GIT_REPOSITORY=gcr.io/$GCE_PROJECT_ID/$WERCKER_GIT_REPOSITORY:$WERCKER_GIT_COMMIT
 
     after-steps:
       - slack-notifier:

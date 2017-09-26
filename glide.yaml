@@ -1,5 +1,0 @@
-package: github.com/rimoto/nsqd-discovery
-import:
-- package: github.com/apex/log
-  subpackages:
-  - handlers/text
