@@ -18,7 +18,7 @@ var (
 	ldPort      = flag.Int("lookupd-tcp-port", 4160, "The nsqlookupd TCP port")
 	dnsAddr     = flag.String("lookupd-dns-address", "", "The nsqlookupd DNS entry")
 	cfgAddr     = flag.String("config-http-address", "", "The config address")
-	httpAddrCfg = flag.Bool("config-http-addresses", false, "Config nsqlookupd http addresses")
+	httpAddrCfg = flag.Bool("config-addresses-as-http", false, "Config nsqlookupd http addresses")
 )
 
 func main() {
