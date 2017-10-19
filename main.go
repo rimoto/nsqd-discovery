@@ -10,8 +10,8 @@ import (
 
 	"github.com/apex/log"
 	"github.com/apex/log/handlers/text"
-	"github.com/harlow/nsqd-discovery/dnscfg"
-	"github.com/harlow/nsqd-discovery/httpcfg"
+	"github.com/rimoto/nsqd-discovery/dnscfg"
+	"github.com/rimoto/nsqd-discovery/httpcfg"
 )
 
 var (
